@@ -9,3 +9,8 @@ app.use(bodyParser.json());
 app.get('/test', function(req, res) {
     console.log('diocane');
 });
+
+
+app.listen(PORT, function() {
+    console.log('Server listening on ' + PORT);
+});
