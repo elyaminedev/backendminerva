@@ -16,11 +16,11 @@ app.post('/account', function(req, res) {
     var lname = req.body.lname;
     var mail = req.body.mail;
     var pass = req.body.pass;
-    currentId++;
+    
 
     student.newUser(fname, lname, mail, pass);
 
-    res.send('Successfully created product!');
+    res.send('Successfully created account!');
 });
 
 app.listen(PORT, function() {
