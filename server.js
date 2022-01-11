@@ -1,14 +1,25 @@
-var express = require('express');
-var student = require('./db');
-var app = express();
-var bodyParser = require('body-parser');
 
-var PORT = process.env.PORT || 3000;
-app.use(express.static(__dirname));
+var student = require('./db');
+var bodyParser = require('body-parser');
+const express = require("express");
+const cors = require("cors");
+const app = express();
+
+app.use(express.json());
+app.use(cors());
 app.use(bodyParser.json());
 
+var PORT = process.env.PORT || 3000;
+
+
+
+
+
+
 app.get('/test', function(req, res) {
-    console.log('diocane');
+    res.json({ 
+        "x":{}
+  });
 });
 
 app.post('/account', function(req, res) {
@@ -19,9 +30,12 @@ app.post('/account', function(req, res) {
     
 
     student.newUser(fname, lname, mail, pass);
+    res.json({ 
+        "x":{}
+  });
+    
+  });
 
-    res.send('Successfully created account!');
-});
 
 app.listen(PORT, function() {
     console.log('Server listening on ' + PORT);
